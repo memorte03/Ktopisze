@@ -1,0 +1,101 @@
+@import 'core.scss';
+@import 'variables.scss';
+
+#container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: var(--padd);
+    font-size:var(--font);
+    color: white;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.nav-btn-container{
+    position: absolute;
+    right:0;
+    .nav-btn{
+        font-size:var(--rgbtn);
+    }
+}
+
+#main-panel {
+    position: relative;
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    .input-container {
+        display:flex;
+        position: absolute;
+        justify-content: center;
+        flex-direction:column;
+        top:50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: var(--h1);
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    .input {
+        display: flex;
+        flex-direction: column;
+        width:100%;
+
+        input {
+            height: 3.2em;
+            margin: .7em 0;
+            padding: 0 2.7em;
+            border-radius: 2.7rem;
+            font-size: var(--input);
+            outline:none;
+            border:none;
+            background-color: color(background-secondary);
+            color: color(text-secondary); 
+        }
+        .submit-btn{
+            color:rgb(22, 26, 75);
+            background-color:color(accent);
+            box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
+        }
+    }
+    a{
+        width:100%;
+        font-size: var(--a);
+        text-align:center;
+        color:#808692;
+        margin-top:3rem;
+    }
+}
+
+//Device = Desktops
+@media only screen and (min-width:1025px){
+    #app {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 0;
+    }
+    #container {
+        position: relative;
+        width: 27rem;
+        height: 42rem;
+        padding: 2rem;
+        box-shadow: 0px 0px 8px 3px rgba(0, 0, 0,0.4);
+    }
+    :root{
+        --rgbtn:1.5rem;
+        --h1:2rem;
+        --input:1rem;
+        --a:1rem;
+    }
+}

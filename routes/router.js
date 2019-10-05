@@ -6,7 +6,20 @@ var StaticRouter = require('react-router-dom').StaticRouter;
 
 module.exports = function(app) {
 
-	app.get('/*', (request, response) => {
+	app.get('/login', (request, response) => {
 		
+		response.render('login');
 	});
+
+	app.get('/mainPage', (request, response) => {
+		
+		response.render('mainPage');
+	});
+
+	app.get('*', (request, response) => {
+		
+		response.render('login');
+	});
+
+	
 };

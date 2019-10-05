@@ -1,0 +1,15 @@
+$sitePagging: 1rem;
+$colors: (
+    text-main: #fff,
+    text-secondary: #81878F,
+
+    background-main: #242A38,
+    background-secondary: #1B2231,
+
+    accent: #565DFF
+);
+
+@function color($color){
+    @return map-get($colors, $color);
+}
+
