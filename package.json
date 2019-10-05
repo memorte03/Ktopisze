@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "react": "webpack --watch"
+    "react": "webpack --watch",
+    "sync": "browser-sync start --proxy 'localhost:4000' --files 'public'"
   },
   "repository": {
     "type": "git",
