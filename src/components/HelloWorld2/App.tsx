@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import LoginRegisterPanel from './Panel/LoginRegisterPanel';
+import './css/main.css';
 
 export default class App extends React.Component<any,any>{
     render(){
         return(
-            <LoginRegisterPanel />
+            <div>
+                Hello world2
+            </div>
         );
     }
 }

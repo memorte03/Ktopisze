@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import AppLoginRegister from './components/loginRegister/App';
-import AppMainPage from './components/mainPage/App';
+import HelloWorld1 from './components/HelloWorld1/App';
+import HelloWorld2 from './components/HelloWorld2/App';
 
 
-document.getElementById('root-login-register') ? ReactDOM.render(<AppLoginRegister />, document.getElementById('root-login-register')) : null;
+document.getElementById('root-helloworld1') ? ReactDOM.render(<HelloWorld1 />, document.getElementById('root-helloworld1')) : null;
 
-document.getElementById('root-main-page') ? ReactDOM.render(<AppMainPage />, document.getElementById('root-main-page')) : null;
+document.getElementById('root-helloworld2') ? ReactDOM.render(<HelloWorld2 />, document.getElementById('root-helloworld2')) : null;
 
 
 

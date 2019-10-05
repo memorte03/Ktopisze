@@ -6,19 +6,19 @@ var StaticRouter = require('react-router-dom').StaticRouter;
 
 module.exports = function(app) {
 
-	app.get('/login', (request, response) => {
+	app.get('/helloworld1', (request, response) => {
 		
-		response.render('login');
+		response.render('helloworld1');
 	});
 
-	app.get('/mainPage', (request, response) => {
+	app.get('/helloworld2', (request, response) => {
 		
-		response.render('mainPage');
+		response.render('helloworld2');
 	});
 
 	app.get('*', (request, response) => {
 		
-		response.render('login');
+		response.render('helloworld1');
 	});
 
 	

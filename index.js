@@ -2,8 +2,8 @@ const express = require('express'),
 	sass = require('node-sass-middleware'),
 	app = express(),
 	http = require('http').Server(app),
-    io = require('socket.io')(http);
-
+	io = require('socket.io')(http),
+	path = require('path');
 
 //postatwowa konfiguracja
 app.set('host', '0.0.0.0');
@@ -11,13 +11,6 @@ app.set('host', '0.0.0.0');
 app.engine('ejs', require('express-ejs-extend'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
-app.use(sass({
-	src: './public/',
-	dist: './public/',
-	outputStyle: 'expanded',
-	sourceMap: true
-}));
 
 //statyczne pliki
 app.use(express.static('./public'));
