@@ -8,6 +8,7 @@ const sourcemaps = require('gulp-sourcemaps');
 var Config = require('./config.js');
 const config = new Config();
 var src = config.getSrc();
+var public = config.getPublic();
 
 
 gulp.task('sass', function () {
@@ -17,7 +18,7 @@ gulp.task('sass', function () {
         .pipe(postcss([autoprefixer()]))
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(`${src}/css`));
+        .pipe(gulp.dest(`${public}`));
 });
 
 gulp.task('watch', function(){

@@ -7,6 +7,9 @@ class Config{
     getSrc(){
         return `./src/components/${this.src}`;
     }
+    getPublic(){
+        return `./public/css/${this.src}`;
+    }
 }
 
 module.exports = Config;
