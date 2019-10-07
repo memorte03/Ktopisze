@@ -1,9 +1,7 @@
 const express = require('express'),
-	sass = require('node-sass-middleware'),
 	app = express(),
 	http = require('http').Server(app),
-	io = require('socket.io')(http),
-	path = require('path');
+	io = require('socket.io')(http);
 
 //postatwowa konfiguracja
 app.set('host', '0.0.0.0');
