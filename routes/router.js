@@ -1,14 +1,19 @@
 
 module.exports = function(app) {
 
+	app.get('/helloworld1', (req,res) => {
+
+		res.render('base', {path: "helloworld1"});
+	});
+
 	app.get('/helloworld2', (req, res) => {
 		
-		res.render('helloworld2', {path: "helloworld2"});
+		res.render('base', {path: "helloworld2"});
 	});
 
 	app.get('*', (req, res) => {
 		
-		res.render('helloworld1', {path: "helloworld1"});
+		res.redirect('helloworld1');
 	});
 
 	
