@@ -1,28 +1,51 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const autoprefixer = require('autoprefixer');
-const cleanCSS = require('gulp-clean-css');
-const postcss = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
+const gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('autoprefixer'),
+    cleanCSS = require('gulp-clean-css'),
+    postcss = require('gulp-postcss'),
+    sourcemaps = require('gulp-sourcemaps'),
+    merge = require('merge-stream');
+require('colors');
 
 var Config = require('./config.js');
 const config = new Config();
-var src = config.getSrc();
-var public = config.getPublic();
+var src = config.src;
+var path = config.path;
+const multiPath = typeof src === "object" ? true : false;
 
+multiPath ? console.log("Watching:".red.bold,config.src) : console.log("Watching:".red.bold,`[ ${config.src.green} ]`);
 
-gulp.task('sass', function () {
-    return gulp.src(`${src}/scss/**/*.scss`) // Gets all files ending with .scss in app/scss
-        .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(postcss([autoprefixer()]))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(`${public}`));
+gulp.task('sass', function(){
+    if(multiPath){
+        var returns = [];
+        for(let i = 0;i<src.length;i++){
+            returns[i] = gulp.src(`${path}/${src[i]}/scss/**/*.scss`)
+            .pipe(sourcemaps.init())
+            .pipe(sass())
+            .pipe(postcss([autoprefixer()]))
+            .pipe(cleanCSS({ compatibility: 'ie8' }))
+            .pipe(sourcemaps.write('./'))
+            .pipe(gulp.dest(`${path}/${src[i]}/css`));
+        }
+        return merge(returns);
+    }
+    else{
+        return gulp.src(`${path}/${src}/scss/**/*.scss`)
+            .pipe(sourcemaps.init())
+            .pipe(sass())
+            .pipe(postcss([autoprefixer()]))
+            .pipe(cleanCSS({ compatibility: 'ie8' }))
+            .pipe(sourcemaps.write('./'))
+            .pipe(gulp.dest(`${path}/${src}/css`));
+    }
 });
 
 gulp.task('watch', function(){
-    gulp.watch(`${src}/scss/**/*.scss`,gulp.parallel('sass'));
+    if(multiPath){
+        gulp.watch(config.getDirectory(),gulp.parallel('sass'));
+    }else{
+        gulp.watch(`${path}/${src}/scss/**/*.scss`,gulp.parallel('sass'));
+    }
 });
 
 gulp.task('default', gulp.series('sass','watch'));
