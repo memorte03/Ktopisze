@@ -1,0 +1,18 @@
+body{
+    padding: 0;
+    background-color: $background;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+.wrapper{
+    max-width: 380px;
+    margin: 0 auto;
+    color: white;
+    padding: .2rem
+}

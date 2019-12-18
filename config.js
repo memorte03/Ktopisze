@@ -10,7 +10,7 @@ class Config{
         let config;
         data ? config = JSON.parse(data) : config = undefined;
         // Default path
-        this.path = "./src/components";
+        this.path = "./src/pages";
         if(config && config.path != undefined){
             if(typeof config.path == "string"){
                 if(fs.existsSync(config.path)){
@@ -27,7 +27,7 @@ class Config{
         if(this.srcs.length == 0){
             throw `There's not a single source in that path: ${this.path.green} `.red + `(that's default path)`.yellow + `
 If you want use your own path just add path parameter to config.json file.`.red + `
-Example:`.blue + ` "`.magenta + `path`.green + `"`.magenta + `: "`.magenta + `./src/components`.green + `"`.magenta + `  `.green + `(IMPORTANT to do it without "/" on the end)`.yellow;
+Example:`.blue + ` "`.magenta + `path`.green + `"`.magenta + `: "`.magenta + `./src/pages`.green + `"`.magenta + `  `.green + `(IMPORTANT to do it without "/" on the end)`.yellow;
         }else if(this.srcs.length == 0){
             throw `There's no directories in path: ${this.path.green}`.red;
         }

@@ -1,0 +1,20 @@
+[
+    {
+        "lesson":"Angielski",
+        "person":"Alek",
+        "date":"15.12.2019",
+        "lesson-number":"2"
+    },
+    {
+        "lesson":"WOK",
+        "person":"Dawid",
+        "date":"15.12.2019",
+        "lesson-number":"4"
+    },
+    {
+        "lesson":"BHP",
+        "person":"Patryk",
+        "date":"15.12.2019",
+        "lesson-number":"5"
+    }
+]

@@ -6,14 +6,14 @@ module.exports = function(app) {
 		res.render('base');
 	});
 
-	app.get('/helloworld2', (req, res) => {
+	app.get('/index', (req, res) => {
 		
 		res.render('base');
 	});
 
 	app.get('*', (req, res) => {
 		
-		res.redirect('helloworld1');
+		res.redirect('index');
 	});
 
 	

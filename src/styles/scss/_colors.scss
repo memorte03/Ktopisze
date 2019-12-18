@@ -1,0 +1,12 @@
+@each $name, $color in $social-colors {
+    .bg-#{$name}{
+        background-color: $color !important;
+    }
+}
+
+@each $name, $color in $colors {
+    .bg-#{$name}{
+        background-color: $color !important;
+        box-shadow: 0 0rem .2rem $color !important;
+    }
+}
